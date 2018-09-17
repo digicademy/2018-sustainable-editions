@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Annotate, Generate, Test, Deploy</title>
+
+    <!-- meta information -->
+    <meta name="author" content="Torsten Schrade" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="resources/img/favicon.png" />
+    <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+    <!-- CSS reset and grid -->
+    <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+    <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+
+    <!-- styles for included libraries -->
+
+    <!-- unite gallery -->
+    <link rel="stylesheet" href="vendor/unitegallery/css/unite-gallery.css" type="text/css" />
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="vendor/swiper/swiper.min.css" />
+
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+    <!-- standard presentation styles -->
+    <link href="resources/css/style.css" rel="stylesheet" />
+
+    <!-- custom presentation styles -->
+    <link href="resources/css/custom.css" rel="stylesheet" />
+
+    <!-- js needed in head -->
+
+    <!-- greuler -->
+    <script src="vendor/d3/d3-3.5.6.js"></script>
+    <script src="vendor/cola/cola.v3.min.js"></script>
+    <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+    <!-- html5 dataset shim for IE -->
+    <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="fallback-message">
+        <p>
+            Your browser <strong>doesn't support the features required</strong> by impress.mod.js,
+            so you are presented with a simplified version of this presentation.
+        </p>
+        <p>
+            For the best experience please use the latest <strong>Chrome</strong>, <strong>Safari</strong>
+            or <strong>Firefox</strong> browser.
+        </p>
+    </div>
+
+    <div id="impress">
+
+        <div class="step">
+            <h5 class="down-25"><strong>17.09.2018</strong> | <a href="http://dch.phil-fak.uni-koeln.de/nde-workshop.html">Workshop "Nachhaltigkeit Digitaler Editionen"</a></h5>
+            <h5 class="up-25"><strong>Akademie der Wissenschaften und der Künste, Düsseldorf</strong></h5>
+
+            <h1 class="down-25">
+                Annotate, Generate, Test, Deploy
+            </h1>
+
+            <h2 class="red" style="font-size: 42px;">
+                Aktuelle Software-Engineering Methoden zur Steigerung der
+                Nachhaltigkeit Digitaler Editionen
+            </h2>
+
+            <h4 class="down-50">
+                <strong>Slides:</strong>
+                <a href="https://digicademy.github.io/2018-sustainable-editions" title="View the presentation online">
+                    https://digicademy.github.io/2018-sustainable-editions
+                </a>
+            </h4>
+
+            <h5>
+                <strong><a href="https://orcid.org/0000-0002-0953-2818">Torsten Schrade, Mainz</a></strong> |
+                <img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter" class="twitter-icon" />
+                <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter">@digicademy</a> |
+                <img src="resources/img/Octicons-mark-github.svg" alt="Twitter" class="gh-icon" />
+                <a href="https://github.com/digicademy/" title="Digital Academy on GitHub">digicademy</a> |
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+            </h5>
+        </div>
+
+        <div class="step">
+            <h2>Gliederung</h2>
+            <ol class="line-height-one-five medium">
+                <li>
+                    <strong>Vorüberlegungen</strong> <br/> Dynamik
+                    von Editions-, Präsentations und Bereitstellungsprozessen
+                    Digitaler Editionen als Herausforderung für die Nachhaltigkeit
+                </li>
+                <li>
+                    <strong>Annotate</strong> <br/> Integrative Kapselung
+                    von Daten-, System- und Präsentationsschichten
+                </li>
+                <li>
+                    <strong>Generate</strong> <br/> <em>Static Site Generator</em>:
+                    Dynamik im Editionsprozess, Archivierbarkeit der Präsentationsschicht
+                </li>
+                <li>
+                    <strong>Test</strong> <br/> Nachvollziehbarkeit der Funktionalität
+                    von Präsentationsschichten durch Behaviour Driven Development
+                </li>
+                <li>
+                    <strong>Deploy</strong> <br/> Übertragbarkeit
+                    und dauerhafte Bereitstellung durch abstrahierte
+                    Systemarchitekturen
+                </li>
+                <li>
+                    <strong>Fazit</strong>
+                </li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h1 class="red">01</h1>
+            <h2 class="line-height-one-five">
+                Vorüberlegungen
+            </h2>
+        </div>
+
+        <div class="step">
+            <h2>Warum?</h2>
+            <h3 class="red up-25 after-25">...gehen Digitale Editionen nur immer so schnell kaputt!</h3>
+            <div class="row">
+                <div class="six columns mfp-lightbox">
+                    <a href="resources/img/218429-P0UB1W-440.png">
+                        <img src="resources/img/218429-P0UB1W-440.png" />
+                    </a>
+                </div>
+                <div class="six columns">
+                    <ul class="medium line-height-one-two-five">
+                        <li class="substep">
+                            <strong>Technologiegebunden:</strong>
+                            Notwendigkeit, technischem Wandel kontinuierlich zu folgen
+                        </li>
+                        <li class="substep">
+                            <strong>Personengebunden:</strong>
+                            Wissen um die technischen Funktionalitäten liegt bei Personen
+                            (Sysadmins, Entwickler*innen, Editor*innen)
+                        </li>
+                        <li class="substep">
+                            <strong>Dynamisch:</strong>
+                            Ressourcen werden im Moment des Zugriffs
+                            von Programmlogik erzeugt
+                        </li>
+                        <li class="substep">
+                            Nachfolgend geht es um <strong>Möglichkeiten zur Steigerung der softwaretechnischen Kuratierbarkeit</strong>
+                            und nicht um forschungsdatenbezogene (inhaltliche) Kuratierbarkeit
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">Technische Kuratierbarkeit</h2>
+            <h3 class="red up-25 after-25">Systemschichten digitaler Editionen</h3>
+            <div class="row">
+                <div class="six columns mfp-lightbox">
+                    <a href="resources/img/IC351000.png">
+                        <img src="resources/img/IC351000.png" />
+                    </a>
+                    <p style="font-size: 16px; margin-top: 10px;">
+                        <a href="https://msdn.microsoft.com/en-us/library/ee658099.aspx">
+                            Quelle: Microsoft Application Architecture Guide, 2nd Edition
+                        </a>
+                    </p>
+                </div>
+                <div class="six columns substep">
+                    <h4><strong>Herausforderung:</strong></h4>
+                    <a href="resources/img/jigsaw.png">
+                        <img src="resources/img/jigsaw.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">DER STURM</h2>
+            <h3 class="red up-25 after-25" style="font-size: 34px;">
+                Digitale Quellenedition zur Geschichte der internationalen Avantgarde
+            </h3>
+            <div class="row">
+                <div class="seven columns mfp-lightbox">
+                    <a href="resources/img/sturm-pressebild.png">
+                        <img src="resources/img/sturm-pressebild.png" />
+                    </a>
+                    <p class="centered">
+                        <a href="https://sturm-edition.de">
+                            https://sturm-edition.de/
+                        </a>
+                    </p>
+                </div>
+                <div class="five columns">
+                    <ul class="medium line-height-one-two-five">
+                        <li class="substep">
+                            <strong>Projekt:</strong><br/>
+                            Verbindet Forschung (Digital Humanities, Geschichte, Kunstgeschichte, Literaturwissenschaft)
+                            und Lehre (Digitale Methodik)
+                        </li>
+                        <li class="substep">
+                            So...<br/><strong>
+                            ...standardisiert...<br/>
+                            ...offen...<br/>
+                            ...gekapselt...<br/>
+                            ...nachvollziehbar...<br/>
+                            ...nachhaltig...<br/>
+                            </strong>...wie möglich.
+                        </li>
+                        <li class="substep">
+                            <strong>Kontinuierlicher Prozess!</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">Kapselung</h2>
+            <h3 class="red up-25 after-25">
+                All-in-one Webanwendung
+            </h3>
+            <div class="row">
+                <div class="six columns mfp-lightbox">
+                     <a href="resources/img/sturm-box.png">
+                        <img src="resources/img/sturm-box.png" />
+                    </a>
+                </div>
+                <div class="six columns">
+                    <ul class="medium line-height-one-two-five">
+                        <li class="substep">
+                            <strong>Forschungsdaten + Programmschicht + Präsentationsschicht</strong><br/> in einem Paket
+                        </li>
+                        <li class="substep">
+                            <strong>LIVE Demo:</strong><br/>
+                            1. <a href="https://github.com/digicademy/sturm-exist-app/releases/">
+                                Herunterladen
+                            </a><br/>
+                            2. Einspielen in lokale Instanz<br/>
+                            3. Verwenden
+                        </li>
+                        <li class="substep">
+                            <strong>Grundprinzipien:</strong><br/>
+                            1. Annotieren / Edieren<br/>
+                            2. Generieren<br/>
+                            3. Testen<br/>
+                            4. Ausrollen (Deployen)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h1 class="red">02</h1>
+            <h2 class="line-height-one-five">
+                Annotieren & Generieren
+            </h2>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">Static Site Generators</h2>
+            <h3 class="red up-25 after-25">
+                Eine wiederkehrende Technologie
+            </h3>
+            <div class="row">
+                <div class="seven columns mfp-lightbox">
+                    <p>
+                        <a href="resources/img/static-site-generator-trends.png">
+                            <img src="resources/img/static-site-generator-trends.png" style="width: 80%" /><br/>
+                        </a>
+                        <a class="x-small line-height-one" href="https://about.gitlab.com/2016/06/03/ssg-overview-gitlab-pages-part-1-dynamic-x-static/">
+                            Quelle: Maria Ramos, SSGs Part 1: Static vs Dynamic Websites
+                        </a>
+                    </p>
+                    <p>
+                        <a href="resources/img/static-site-generators-examples.png">
+                            <img src="resources/img/static-site-generators-examples.png" style="width: 70%"/>
+                        </a>
+                    </p>
+                </div>
+                <div class="five columns">
+                    <a href="https://devopedia.org/static-site-generators">
+                        <img src="resources/img/static-site-generator-history.png" style="width: 35%"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">STURM Edition</h2>
+            <h3 class="red up-25 after-25">
+                Trennung von Geschäftslogik und Präsentationsschicht mittels „Static Site Generator“ (eXist-db)
+            </h3>
+            <div class="row">
+                <div class="seven columns mfp-lightbox">
+                    <a href="resources/img/sturm-exist-app.png">
+                        <img src="resources/img/sturm-exist-app.png" />
+                    </a>
+                </div>
+                <div class="five columns mfp-lightbox">
+                    <a href="resources/img/sturm-files.png">
+                        <img src="resources/img/sturm-files.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>LIVE DEMO</h2>
+            <h3 class="red up-25 after-25">Static Site Generator</h3>
+            <div class="row">
+                <div class="twelfe columns">
+                    <ul class="medium line-height-one-two-five">
+                        <li class="substep">
+                            <strong>Beispiel 1:</strong><br/>
+                            Inhalte ändern und Präsentationsschicht neu erzeugen<br/>
+                            <a href="http://sturm-edition.local/exist/apps/eXide/index.html">eXide (lokale Instanz)</a>
+                        </li>
+                        <li class="substep">
+                            <strong>Beispiel 2:</strong><br/>
+                            Präsentationsschicht exportieren und als statisches HTML verwenden<br/>
+                            <a href="https://github.com/digicademy/sturm-exist-app/releases">ZIP Release</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h1 class="red">03</h1>
+            <h2 class="line-height-one-five">
+                Testen
+            </h2>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">Präsentationsschicht</h2>
+            <h3 class="red up-25 after-25">Beispiele für dynamische Funktionalitäten</h3>
+            <div class="row mfp-lightbox">
+                <div class="six columns mfp-lightbox">
+                    <a href="https://sturm-edition.de/quellen/briefe/fma.html">
+                        <img src="resources/img/sturm-sources.png" />
+                    </a>
+                </div>
+                <div class="six columns">
+                    <ul class="small line-height-one-two-five">
+                        <li class="substep">
+                            Haupt-/Subnavigation (einschl. aktiven Zuständen)
+                        </li>
+                        <li class="substep">
+                            Paginierung
+                        </li>
+                        <li class="substep">
+                            Verschiedene Zugriffe auf das Material (chronologisch vs. nach KünstlerIn)
+                        </li>
+                        <li class="substep">
+                            Versionierung
+                        </li>
+                        <li class="substep">
+                            Zitierhinweis
+                        </li>
+                        <li class="substep">
+                            Seitentitel
+                        </li>
+                        <li class="substep">
+                            Brieflisten
+                        </li>
+                        <li class="substep">
+                            Register + Quellenverweise
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">Akzeptanztests</h2>
+            <h3 class="red up-25 after-25">Behaviour Driven Development (BDD)</h3>
+            <div class="row mfp-lightbox">
+                <div class="five columns mfp-lightbox">
+                    <p class="x-small">
+                        <a href="resources/img/DevOps_from_Integration_to_Deployment.jpg">
+                            <img src="resources/img/DevOps_from_Integration_to_Deployment.jpg" />
+                        </a>
+                        <a href="https://commons.wikimedia.org/wiki/File:DevOps_from_Integration_to_Deployment.jpg">Quelle: Wikipedia, User: Jouasse, CC-BY-SA-4.0</a>
+                    </p>
+                    <p class="x-small">
+                    <strong>Gherkin basierte Tests (behat)</strong>
+                    <a href="resources/img/bdd-gherkin.png">
+                        <img src="resources/img/bdd-gherkin.png" />
+                    </a>
+                    </p>
+                </div>
+                <div class="six columns">
+                    <ul class="small line-height-one-two-five">
+                        <li class="substep">
+                            BDD <strong>beschreibt die Funktionalität</strong> einer Anwendungsdomäne
+                            mittels formalisierter Szenarien.
+                        </li>
+                         <li class="substep">
+                            BDD ist ein <strong>"outside-in"-Ansatz</strong>, der mit dem Blick der Nutzer_innen
+                            auf eine Forschungssoftware blickt und deren Funktionalität in ausführbaren Tests dokumentiert.
+                         </li>
+                         <li class="substep">
+                            Die Tests werden in <strong>natürlicher Sprache</strong> nach einem festen Dreischritt-Prinzip formuliert.
+                         </li>
+                         <li class="substep">
+                            Dadurch kann die oftmals "flüchtige" (= wenig nachhaltige) Präsentationsschicht einer Software in
+                            Zusammenarbeit mit den Fachwissenschaftler_innen gemeinsam beschrieben und <strong>nachhaltig dokumentiert</strong> werden.
+                         </li>
+                         <li class="substep">
+                             <strong>LIVE Demo:</strong>
+                             Ausführung von BDD-Tests auf die Präsentationsschicht der STURM-Edition
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h1 class="red">04</h1>
+            <h2 class="line-height-one-five">
+                Ausrollen (Deploy)
+            </h2>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">Systemumgebung</h2>
+            <h3 class="red up-25 after-25">Beispiele für Systembindung</h3>
+            <div class="row mfp-lightbox">
+                <div class="six columns mfp-lightbox">
+                    <a href="https://sturm-edition.de/quellen/briefe/fma.html">
+                        <img src="resources/img/sturm-sources.png" />
+                    </a>
+                </div>
+                <div class="six columns">
+                    <p><strong>Systemumgebung:</strong></p>
+                    <ul class="small line-height-one-two-five">
+                        <li class="substep">
+                            eXist-db =>
+                        </li>
+                        <li class="substep">
+                            basiert auf Java =>
+                        </li>
+                        <li class="substep">
+                            ausgeliefert von Jetty =>
+                        </li>
+                        <li class="substep">
+                            als Proxy hinter einem Apache =>
+                        </li>
+                        <li class="substep">
+                            installiert auf Debian Jessie =>
+                        </li>
+                        <li class="substep">
+                            als virtuelle Maschine.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">DevOps</h2>
+            <h3 class="red up-25 after-25">Nachhaltigkeit durch "Infrastructure as Code"</h3>
+            <div class="row mfp-lightbox">
+                <div class="six columns">
+                    <p>
+                    <a href="resources/img/entwicklung_devops.png">
+                        <img src="resources/img/entwicklung_devops.png" style="width: 90%" />
+                    </a>
+                    </p>
+                    <p class="up-50" style="font-size: 12px">
+                    <a href="resources/img/DevOpsToolchain.png">
+                        <img src="resources/img/DevOpsToolchain.png" style="width: 70%" />
+                    </a><br/>
+                    <a href="https://github.com/Ardemius/devops-workflow">Quelle: Thomas Schwender, CC BY</a>
+                    </p>
+                </div>
+                <div class="six columns">
+                    <ul class="small line-height-one-two-five">
+                        <li class="substep">
+                            DevOps benutzt Werkzeuge, um eine <strong>automatische Reproduzierbarkeit</strong>
+                            der Softwareanwendung einschließlich ihrer Umgebung zu erreichen.
+                        </li>
+                         <li class="substep">
+                            Der große Vorteil liegt in der automatisch
+                            enstehenden Dokumention und <strong>Nachvollziehbarkeit</strong> spezialisierter Software-Infrastrukturen.
+                            Es gibt kein implizites Wissen mehr, dass nur "der Admin" hat.
+                         </li>
+                         <li class="substep">
+                             Gleichzeitig wird die Laufzeitumgebung von der Hardware <strong>abstrahiert</strong> (bspw. durch Virtualisierung).
+                             Eine Forschungssoftware wird somit "cloud-fähig", bzw. kann in beliebigen Infrastrukturen reproduziert werden.
+                         </li>
+                         <li class="substep">
+                            Die Konfigurationen sind meist einfache Textdateien in einer bestimmten Syntax,
+                            die sich gut <strong>versionieren</strong> lassen. Somit lässt sich jede Modifikation an einer Anwendungsumgebung
+                            sauber dokumentieren und protokollieren.
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2 class="down-50">DevOps</h2>
+            <h3 class="red up-25">Nachhaltigkeit durch "Infrastructure as Code"</h3>
+            <div class="row mfp-lightbox">
+                <div class="twelve columns centered">
+                    <a href="resources/img/devops-ansible.png">
+                        <img src="resources/img/devops-ansible.png" style="width: 90%" />
+                    </a>
+                </div>
+                <div class="twelve columns">
+                    <ul class="small line-height-one-two-five">
+                        <li>
+                            <strong>LIVE Demo:</strong>
+                            Ausführung eines Ansible-Playbooks zum Build der STURM-VM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h1 class="red">05</h1>
+            <h2 class="line-height-one-five">
+                Fazit
+            </h2>
+        </div>
+
+        <div class="step">
+            <h2>Technische Nachhaltigkeit</h2>
+            <h3 class="red up-25 after-25">Möglichkeiten zur Steigerung der Nachhaltigkeit</h3>
+            <div class="row">
+                <div class="twelfe columns">
+                    <ul class="medium line-height-one-two-five">
+                        <li class="substep">
+                            Wissen um die Funktionalitäten einer digitalen Edition (funktionales Wissen)
+                            ist meist an bestimmte Personen gebunden (Sysadmins, Entwickler*innen, Editor*innen).
+                            Es ist <strong>"personengebundenes" Wissen</strong>.
+                        </li>
+                        <li class="substep">
+                            Für eine nachhaltige technische Kuratierbarkeit muss dieses Wissen auf jeder Systemschicht
+                            <strong>abstrahiert und formalisiert</strong> werden.
+                        </li>
+                        <li class="substep">
+                            <strong>Dokumentation</strong> ist gut, aber nur ein <strong>Teil der Formalisierung</strong>
+                            des "personengebundenen" funktionalen Wissens.
+                        </li>
+                        <li class="substep">
+                            Das formalisierte Wissen um die Funktionalität einer digitalen Edition muss <strong>nachvollziehbar</strong>
+                            (im Sinne von Versionkontrolle) und <strong>nachprüfbar</strong> (im Sinne maschineller Überprüfungen) sein.
+                        </li>
+                        <li class="substep">
+                            Hierfür existieren bereits unterstützende Methoden: <br/>
+                            - Abstraktion/Überprüfbarkeit durch <strong>Akzeptanztests</strong> (BDD)<br/>
+                            - Abstraktion/Überprüfbarkeit/Ausführbarkeit durch <strong>Automation</strong> (DevOps)
+                        </li>
+                        <li class="substep">
+                            Systemische <strong>Abhängigkeiten sollten dabei so gut wie möglich aufgelöst werden</strong>: statische
+                            Erzeugung des überwiegenden Teils einer digitalen Edition.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="centered">
+                <h1>F I N I S</h1>
+                <h2>Danke für die Aufmerksamkeit</h2>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>Links, Software &amp; Nachnutzung</h2>
+
+            <h4>Benutze Software</h4>
+
+            <ul class="small pull-up">
+                <li>
+                    <a href="https://github.com/impress/impress.js">Impress.js</a> (Presentation)
+                </li>
+                <li>
+                    <a href="https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans">Open Sans</a> (Google Font)
+                </li>
+                <li>
+                    <a href="https://github.com/dimsemenov/Magnific-Popup">Magnific Popup</a> (Lightbox)
+                </li>
+            </ul>
+
+            <h4>Lizenzhinweis</h4>
+            <ul class="small pull-up">
+                <li>
+                    Link:
+                    <a href="https://digicademy.github.io/2018-sustainable-editions">
+                        https://digicademy.github.io/2018-sustainable-editions
+                    </a>
+                </li>
+                <li>
+                    Lizenz: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>, Torsten Schrade
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- jquery -->
+    <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+
+    <!-- unite gallery -->
+    <script type="text/javascript" src="vendor/unitegallery/js/unitegallery.min.js"></script>
+    <script type="text/javascript" src="vendor/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+    <script type="text/javascript" src="resources/js/unite.gallery.js"></script>
+
+    <!-- swiper -->
+    <script src="vendor/swiper/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 30,
+            hashnav: true
+        });
+    </script>
+
+    <!-- magnific popup -->
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+    <script src="resources/js/magnific-popup.lightbox.js"></script>
+
+    <!-- impress.mod.js -->
+    <script src="vendor/impress/impress.fork.js"></script>
+    <script src="vendor/impress/impress-slidenum.js"></script>
+    <script>
+        var obj = impress();
+        obj.init();
+        initSlideNo(obj);
+    </script>
+
+</body>
+</html>
